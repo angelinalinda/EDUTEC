@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR" >
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geopoliso</title>
+<!-- Favicon (ícone de mundo) - troca de cor conforme o tema via script.js -->
+<link rel="icon" id="favicon" type="image/svg+xml" href="">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header">
+  <div class="header-left">
+
+    <a href="#home" class="logo">
+      <img src="./Imagenseba/Group 44.png" alt="Geopoliso">
+    </a>
+
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#game">Game</a>
+      <a href="#noticias">Notícias</a>
+    </nav>
+
+  </div>
+
+  <div class="header-actions">
+    <a href="#cadastro" class="link-cadastro">Cadastro</a>
+
+    <a href="#entrar" class="btn-entrar">
+      Entrar <span class="arrow">→</span>
+    </a>
+
+  </div>
+</header>
+
+
+   <div class="theme-toggle-container">
+  <button id="themeToggle" class="theme-toggle" aria-label="Alterar tema">
+    <img 
+      class="toggle-light" 
+      src="./Imagenseba/MUNDOescuro.jfif" 
+      alt="Tema escuro"
+    >
+
+    <img 
+      class="toggle-dark" 
+      src="./Imagenseba/MUNDOclaro.jfif" 
+      alt="Tema claro"
+    >
+  </button>
+</div>
+
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="home">
+  <div class="hero-carousel" id="heroCarousel">
+    <div class="hero-slide active">
+      <img src="./Imagenseba/Carrosselfoto1.png" alt="Banner Geopoliso 1">
+    </div>
+    <div class="hero-slide">
+      <img src="./Imagenseba/Carrosselfoto2.png" alt="Banner Geopoliso 2">
+    </div>
+    <div class="hero-slide">
+      <img src="./Imagenseba/Carrosselfoto3.png" alt="Banner Geopoliso 3">
+    </div>
+    <div class="hero-slide">
+      <img src="./Imagenseba/Carrosselfoto4.png" alt="Banner Geopoliso 4">
+    </div>
+    <div class="hero-overlay"></div>
+  </div>
+  <h1 class="hero-title">GEOPOLISO</h1>
+</section>
+
+<!-- ===================== BOAS-VINDAS ===================== -->
+<section class="welcome">
+  <p class="welcome-title"><em><strong>Bem-vindo ao Geopoliso!</strong></em></p>
+  <p>Aqui, mostramos que a geopolítica não é um assunto distante, restrito aos noticiários ou a engravatados em reuniões da ONU. Ela é a força invisível que molda o seu dia a dia, desde o preço do pão na padaria até a tecnologia do smartphone que está nas suas mãos.</p>
+  <p>Em um mar de informações rápidas e muitas vezes superficiais, nosso papel é oferecer a você as ferramentas para desenvolver um olhar crítico sobre a realidade. Sem jargões complexos, traduzimos como disputas por recursos, crises energéticas e novas alianças comerciais redesenham os rumos da nossa sociedade.</p>
+  <p>Nosso objetivo é descomplicar o cenário internacional. Conectamos os pontos para que você entenda não apenas o que acontece no mundo, mas como esse complexo xadrez global impacta diretamente a sua vida e o seu futuro.</p>
+  <p>Explore nossas análises e descubra como o mundo realmente funciona!</p>
+  </div>
+</section>
+
+<!-- ===================== CONTEUDO DO SITE ===================== -->
+<section class="content-section" id="conteudo">
+  <h2>Conteudo do site</h2>
+
+  <div class="cards-grid">
+    <div class="info-card">
+      <div class="card-icon">★</div>
+      <h3>Análises de Crises e Conflitos Globais</h3>
+      <p>Explica notícias internacionais de forma simples e clara, ajudando você a entender as verdadeiras causas de guerras, conflitos comerciais e tensões diplomáticas, sem linguagem complicada.</p>
+    </div>
+
+    <div class="info-card">
+      <div class="card-icon">★</div>
+      <h3>Geopolítica do Cotidiano</h3>
+      <p>Mostra como decisões de grandes países afetam seu dia a dia, os preços, a economia e as tendências do mercado de trabalho e da tecnologia.</p>
+    </div>
+
+    <div class="info-card">
+      <div class="card-icon">★</div>
+      <h3>Contexto Histórico e Mapas Interativos</h3>
+      <p>Apresenta o contexto histórico e visual para entender o mundo atual, ajudando a desenvolver pensamento crítico e ampliar o repertório para estudos e debates.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LOCAIS ===================== -->
+<section class="locais-section" id="locais">
+  <h2>Locais</h2>
+
+  <div class="locais-card">
+    <div class="locais-image">
+      <img src="./Imagenseba/Rectangle 244.png" alt="Sede da ONU com bandeiras dos países">
+    </div>
+    <div class="locais-content">
+      <p>Uma ferramenta interativa projetada para mapear e explicar os grandes conflitos globais. Ela mostra o ponto exato onde os fatos históricos aconteceram, traz um resumo rápido sobre cada evento e, por meio de uma simulação do OpenStreetMap em 360º, permite que você explore e veja como esses cenários reais estão nos dias de hoje.</p>
+      <a href="#explorar" class="btn-explorar">Explorar</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="faq-section" id="faq">
+  <h2>Perguntas frequentes</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-question">
+        As informações são confiáveis?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Sim. As informações apresentadas no site são pesquisadas e verificadas com base em fontes confiáveis, como órgãos oficiais, instituições internacionais, artigos acadêmicos e veículos jornalísticos reconhecidos. O objetivo é apresentar os acontecimentos geopolíticos de forma clara, imparcial e fundamentada, 
+            sempre priorizando dados que possam ser confirmados por diferentes fontes.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Posso usar o conteúdo em trabalhos escolares?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Sim. O conteúdo do site pode ser utilizado como fonte de apoio em trabalhos escolares.
+             Recomendamos, porém, que o estudante também consulte e cite as fontes originais indicadas nas páginas, 
+             especialmente em trabalhos que exigem referências bibliográficas.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Quem pode usar o site?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>O site pode ser utilizado por qualquer pessoa interessada em geopolítica, 
+            especialmente estudantes, professores e pesquisadores. O conteúdo foi desenvolvido para facilitar o acesso a informações sobre política internacional, 
+            conflitos, relações entre países e acontecimentos geopolíticos de forma clara e acessível.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Como funciona o mapa interativo?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>O mapa interativo permite que o usuário explore o mapa-múndi e localize diferentes países e regiões. 
+            Ele foi desenvolvido para facilitar a visualização e a identificação geográfica dos locais apresentados no site.</p>
+      </div>
+    </div>
+
+    <div class="faq-item active">
+      <button class="faq-question">
+        Receberei notificações ou e-mails?
+        <span class="faq-icon"></span>
+      </button>
+      <div class="faq-answer" style="max-height: 500px;">
+        <p>Não. O site não envia notificações ou e-mails aos usuários. As informações ficam disponíveis diretamente na plataforma, sem a necessidade de assinatura para receber atualizações.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DEV'S ===================== -->
+<section class="devs-section" id="devs">
+  <h2>DEV'S</h2>
+
+  <div class="devs-carousel">
+    <div class="devs-track" id="devsTrack">
+
+      <div class="dev-card">
+        <div class="dev-photo"><img src="./Imagenseba/IMG_20260727_131317_524 (1).webp" alt="Foto do desenvolvedor 1"></div>
+        <div class="dev-info">
+          <h3>Angela Manuelle Souza Aragão</h3>
+          <p class="dev-location">São Paulo, SP</p>
+          <p class="dev-age">16</p>
+          <p class="dev-quote">“Gosto bastante de TI, porém, a área em que penso em seguir é a de Psicologia. Sempre achei incrivel como cada um funciona de forma diferente, e gostaria de saber mais sobre.”</p>
+          <div class="dev-social">
+            <svg viewBox="0 0 24 24" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg>
+            <span> <a href="https://www.instagram.com/angelamanuelle?igsi=MW1wOW5tN3c1N2JveA==">@angelamanuelle</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dev-card">
+        <div class="dev-photo"><img src="./Imagenseba/ISADORAimagem.png" alt="Foto do desenvolvedor 2"></div>
+        <div class="dev-info">
+          <h3>Isadora Costa Santos</h3>
+          <p class="dev-location">São Paulo, SP</p>
+          <p class="dev-age">16</p>
+          <p class="dev-quote">“Mesmo com meu interesse pela tecnologia, meu maior objetivo é cursar Medicina Veterinária e trabalhar cuidando dos animais.”</p>
+          <div class="dev-social">
+            <svg viewBox="0 0 24 24" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg>
+            <span><a href="https://www.instagram.com/isaa.cost4?igsi=dXp6Z2Vud2J6OXJ6">@isaa.cost4</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dev-card">
+        <div class="dev-photo"><img src="./Imagenseba/LARAimagem.png" alt="Foto do desenvolvedor 3"></div>
+        <div class="dev-info">
+          <h3>Lara Domingos Queiro dos Santos</h3>
+          <p class="dev-location">São Paulo, SP</p>
+          <p class="dev-age">16</p>
+          <p class="dev-quote">“Gostaria de me formar em Design pela ESPM, adoro a ideia do ser humano conseguir se expressar através do fora do óbvio,
+             ou o fato de que alguém pode lembrar de algo especifico apenas vendo algo simples.”</p>
+          <div class="dev-social">
+            <svg viewBox="0 0 24 24" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg>
+            <span><a href="https://www.instagram.com/0li.szz?igsi=ZjJ4dnppaWxnNW53">@0li.szz</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dev-card">
+        <div class="dev-photo"><img src="./Imagenseba/LUCASimagem.png" alt="Foto do desenvolvedor 4"></div>
+        <div class="dev-info">
+          <h3>Lucas Pachierri Torres</h3>
+          <p class="dev-location">São Paulo, SP</p>
+          <p class="dev-age">16</p>
+          <p class="dev-quote">“Eu gostaria de ne formar em Data  Science pela FIAP,
+            eu vejo         essa área como um grande alicerce para aprendizado, 
+            desenvolvimento na área e possibilidade de carreira, é como
+            enchergar  o mundo de uma forma crítica e exata, exigindo um
+            raciocínio complexo para desenvolver, guardar e assegurar dados 
+            de forma precisa, é algo para aqueles que buscam sempre se dasafiar.</p>
+          <div class="dev-social">
+            <svg viewBox="0 0 24 24" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg>
+            <span><a href="https://www.instagram.com/random_0ld_man?igsi=MTZvcWZjbHUxdnp1aw==">@random_0ld_man</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dev-card">
+        <div class="dev-photo"><img src="./Imagenseba/KENJIimagem.png" alt="Foto do desenvolvedor 5"></div>
+        <div class="dev-info">
+          <h3>Tiago Kenji Makiyama</h3>
+          <p class="dev-location">São Paulo, SP</p>
+          <p class="dev-age">16</p>
+          <p class="dev-quote">“Considero a área de  Ti interessante e uma ótima opção, porém  a área que eu gostaria 
+            mesmo de seguir seria a da gastronomia, tanto pela ambição pessoal quanto as possibilidades.”</p>
+          <div class="dev-social">
+            <svg viewBox="0 0 24 24" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg>
+            <span><a href="https://www.instagram.com/_tiagokenji?igsi=MndiYXhjMDZmMnp4">@_tiagokenji</a></span>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="devs-dots" id="devsDots">
+    <button class="dot active" data-index="0"></button>
+    <button class="dot" data-index="1"></button>
+    <button class="dot" data-index="2"></button>
+    <button class="dot" data-index="3"></button>
+    <button class="dot" data-index="4"></button>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-logo">
+     <a href="#home" class="logo">
+      <img src="./Imagenseba/Group 44.png" alt="Geopoliso">
+    </a>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="#home">Home</a>
+      <a href="#conteudo">Conteúdo</a>
+      <a href="#faq">Perguntas</a>
+      <a href="#devs">Dev's</a>
+      <a href="#locais">Locais</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#game">Game</a>
+      <a href="#noticias">Notícias</a>
+    </nav>
+
+    <div class="footer-social">
+      <span>SOCIAL</span>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg>
+        </a>
+        <a href="#" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M16.5 2c.3 2 1.6 3.6 3.5 4v3c-1.4 0-2.6-.4-3.5-1.1v6.6c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c.4 0 .8 0 1.1.1v3.1c-.3-.1-.7-.2-1.1-.2-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3V2h3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="footer-divider">
+
+  <div class="footer-bottom">
+    <div class="footer-lang">
+      <span class="flag-br">🇧🇷</span>
+      <span>Português - BR</span>
+    </div>
+    <div class="footer-copy">2026 © GEOPOLISO</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

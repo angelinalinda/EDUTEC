@@ -1,263 +1,345 @@
-/* =========================================================
-   GEOPOLISO — auth.css
-   Base compartilhada por login.html e cadastro.html.
-   Usa as mesmas CSS variables de style.css (tema claro/escuro).
+/*=========================================================
+   GEOPOLISO — style.css
    ========================================================= */
-
-/* ---- Toggle de tema reposicionado (canto superior esquerdo) ---- */
-.auth-page .theme-toggle-container{
-  position: fixed;
-  top: 20px;
-  left: 24px;
-  z-index: 200;
+ 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+ 
+:root{
+  /* ---- Tema ESCURO (padrão) */
+  --bg: #000000;
+  --bg-alt: #0a0a0a;
+  --text: #FFFFFF;
+  --text-muted: #D9D9D9;
+  --accent: #BBD048;
+  --accent-dark: #788C0F;
+  --accent-darker: #4B5803;
+  --card-bg: #242424;
+  --card-border: #BBD048;
+  --faq-bg: #242424;
+  --header-bg: #111111;
+  --header-text: #FFFFFF;
+  --toggle-track: #D9D9D9;
+  --toggle-thumb: #242424;
+  --toggle-icon: #FFFFFF;
+ 
+  /* Constantes de layout */
+  --max-width: 1200px;
+  --radius: 6px;
+  --font-display: 'Poppins', sans-serif;
+ 
+  /* NOVO: cor das formas orgânicas (blobs) da página de Cadastro
+     tema escuro = verde-limão (accent) */
+  --blob-color: var(--accent);
 }
+ 
+[data-theme="light"]{
+  /* paleta clara: 000000 / 2C2C2C / E2E6C7 / 7B834F / 484D2C / 2D301D */
+  --bg: #E2E6C7;
+  --bg-alt: #EDEFDC;
+  --text: #000000;
+  --text-muted: #2C2C2C;
+  --accent: #7B834F;
+  --accent-dark: #484D2C;
+  --accent-darker: #2D301D;
+  --card-bg: #d7dbb9; /* Ajuste para o cinza do design claro conforme imagens */
+  --card-border: #2D301D;
+  --faq-bg: #d7dbb9;
+  --header-bg: #0d0d0d;
+  --header-text: #FFFFFF;
+  --toggle-track: #000000;
+  --toggle-thumb: #FFFFFF;
+  --toggle-icon: #000000;
+ 
+ 
+  --blob-color: var(--accent-darker);
+}
+ 
+*{ box-sizing: border-box; margin:0; padding:0; }
+ 
+html{ scroll-behavior: smooth; }
+ 
+body{
+  font-family: var(--font-display);
+  background: var(--bg);
+  color: var(--text);
+  transition: background .35s ease, color .35s ease;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+ 
+h1, h2, h3{ font-family: var(--font-display); }
+ 
+a{ text-decoration: none; color: inherit; }
+ 
+button{ font-family: inherit; }
+ 
 
-.auth-page .theme-toggle{
-  position: static;
+/* =========================================================
+   THEME TOGGLE
+   ========================================================= */
+/* Modo ESCURO do site -> pill clara (D9D9D9) com círculo escuro à DIREITA
+   Modo CLARO do site -> pill escura (preta) com círculo claro à ESQUERDA   */
+
+.theme-toggle{
+  width: 100px;
+  height: 50px;
+  background: var(--toggle-track);
+  border: none;
+  border-radius: 50px;
+  padding: 4px;
+  cursor: pointer;
+
   display: flex;
   align-items: center;
-  gap: 4px;
-  width: 56px;
-  height: 32px;
-  border-radius: 20px;
-  background: #000;
-  padding: 4px;
-  border: none;
-  cursor: pointer;
+  justify-content: flex-start;
+
+  position: relative;
+  margin-left: auto;
+  margin-right: 30px;
+  margin-top: 25px;
+
+  flex-shrink: 0;
+
+  transition:
+    background-color .3s ease,
+    transform .2s ease;
 }
 
-[data-theme="light"] .auth-page .theme-toggle{
-  background: #fff;
-  border: 1px solid #d9d9d9;
+.theme-toggle:hover{
+  transform: scale(1.03);
 }
 
-.auth-page .theme-toggle img{
-  width: 24px;
-  height: 24px;
+.theme-toggle img{
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   object-fit: cover;
+  position: absolute;
+  left: 4px;
+  transition:
+    left .3s ease,
+    opacity .3s ease,
+    transform .3s ease;
+}
+
+[data-theme="dark"] .toggle-light{
   display: none;
 }
 
-.auth-page .theme-toggle .toggle-light{ display: block; }
-[data-theme="light"] .auth-page .theme-toggle .toggle-light{ display: none; }
-[data-theme="light"] .auth-page .theme-toggle .toggle-dark{ display: block; }
-
-/* ---- Cartão de autenticação ---- */
-.auth-card{
-  width: 100%;
-  max-width: 400px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 18px;
-  padding: 40px 36px 36px;
-  box-shadow: 0 14px 40px rgba(0,0,0,.22);
-  text-align: center;
+[data-theme="dark"] .toggle-dark{
+  display: block;
 }
 
-.auth-title{
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 6px;
+[data-theme="light"] .toggle-dark{
+  display: none;
 }
 
-.auth-subtitle{
-  font-size: 13px;
-  color: var(--text);
-  margin-bottom: 24px;
+[data-theme="light"] .toggle-light{
+  display: block;
 }
 
-.accent-link{
-  color: var(--accent);
-  font-weight: 600;
-}
-.accent-link:hover{ text-decoration: underline; }
-
-.auth-form{
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  text-align: left;
+/* Bolinha */
+[data-theme="light"] .theme-toggle img{
+  left: 4px;
 }
 
-.field{ display:flex; flex-direction: column; gap: 4px; }
-
-.field input{
-  font-family: var(--font-display);
-  background: #FFFFFF;
-  color: #2A2A2A;
-  border: 1px solid #E4E4D4;
-  border-radius: 10px;
-  padding: 13px 16px;
-  font-size: 14px;
-  outline: none;
-  width: 100%;
-  transition: border-color .2s, box-shadow .2s;
+[data-theme="dark"] .theme-toggle img{
+  left: 54px;
 }
 
-.field input::placeholder{ color: #9A9A8E; }
-
-.field input:focus{
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+/* Tema escuro */
+[data-theme="dark"] .theme-toggle{
+  background: #242424;;
 }
 
-.field.has-error input{ border-color: #E0554F; }
-
-.field-error{
-  font-size: 12px;
-  color: #E0554F;
-  min-height: 14px;
+[data-theme="dark"] .theme-toggle img{
+  background: #D9D9D9 ;
 }
 
-.forgot-link{
-  align-self: flex-start;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--accent);
-  margin-top: -6px;
-}
-.forgot-link:hover{ text-decoration: underline; }
-
-.form-msg{
-  font-size: 13px;
-  text-align: center;
-  min-height: 16px;
-}
-.form-msg.error{ color: #E0554F; }
-.form-msg.success{ color: var(--accent); }
-.form-msg a{ color: inherit; text-decoration: underline; font-weight: 600; }
-
-.btn-cta{
-  align-self: center;
-  font-family: var(--font-display);
-  background: var(--accent-dark);
-  color: #FFFFFF;
-  font-weight: 700;
-  font-size: 15px;
-  border: none;
-  border-radius: 12px;
-  padding: 13px 56px;
-  cursor: pointer;
-  margin-top: 6px;
-  transition: background .2s, transform .1s;
-}
-.btn-cta:hover{ background: var(--accent-darker); }
-.btn-cta:active{ transform: scale(.98); }
-.btn-cta:disabled{ opacity: .6; cursor: not-allowed; }
-
-/* ---- Checkbox de termos (usado no cadastro) ---- */
-.terms-field{
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--text);
-}
-.terms-field input{
-  margin-top: 3px;
-  accent-color: var(--accent);
-  width: 15px;
-  height: 15px;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-.terms-field a{ color: var(--accent); font-weight: 600; }
-.terms-field a:hover{ text-decoration: underline; }
-
-@media (max-width: 480px){
-  .auth-card{ padding: 32px 22px 28px; }
-  .btn-cta{ padding: 13px 40px; width: 100%; }
+/* Tema claro */
+[data-theme="light"] .theme-toggle{
+  background: #D9D9D9;
 }
 
+[data-theme="light"] .theme-toggle img{
+  background: #242424;
+}
 
 /* =========================================================
-   GEOPOLISO — cadastro.css
-   Layout específico da tela de cadastro: hero com formas orgânicas
-   (blobs), citação à esquerda e card à direita.
+   NOVO — CONTEÚDO PRINCIPAL (compartilhado)
    ========================================================= */
-
-.cadastro-hero{
-  position: relative;
-  overflow: hidden;
-  min-height: 640px;
+main{
+  flex: 1;
+  display: flex;
+  width: 100%;
+}
+ 
+/* ---------- LOGIN ---------- */
+.login-main{
+  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  padding: 90px 60px 70px;
+  justify-content: center;
+  padding: 90px 20px 70px;
+}
+ 
+.login-card{
+  width: 100%;
+  max-width: 420px;
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 48px 52px;
+  text-align: center;
+}
+ 
+.login-card h1{
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+ 
+.login-subtitle{
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+ 
+.login-subtitle a{
+  color: var(--accent);
+  font-weight: 700;
+}
+ 
+.login-subtitle a:hover{ text-decoration: underline; }
+ 
+.form-group{
+  margin-bottom: 16px;
+  text-align: left;
+}
+ 
+.input-field{
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: #FFFFFF;
+  color: #1a1a1a;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+ 
+.input-field::placeholder{ color: #9a9a9a; }
+ 
+.input-field:focus{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+ 
+.forgot-link{
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 4px 0 26px;
+}
+ 
+.forgot-link:hover{ text-decoration: underline; }
+ 
+.btn-submit{
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #12140a;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 15px;
+  cursor: pointer;
+  transition: filter .2s ease, transform .2s ease;
+}
+ 
+.btn-submit:hover{ filter: brightness(1.08); transform: translateY(-1px); }
+
+ /* =========================================================
+   FOOTER
+   ========================================================= */
+.footer{
+  background: var(--header-bg);
+  color: var(--header-text);
+  padding: 40px;
+}
+
+.footer-top{
   max-width: var(--max-width);
   margin: 0 auto;
+  display:flex;
+  align-items:flex-start;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-/* ---- Formas orgânicas (blobs) decorativas ---- */
-.hero-blob{
+.footer-logo{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  font-size: 10px;
+  font-weight:700;
+  line-height:1.1;
+  color: var(--accent);
+}
+
+.footer-nav{
+  display:flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+.footer-nav a{ opacity: .85; transition: opacity .2s; }
+.footer-nav a:hover{ opacity: 1; color: var(--accent); }
+
+.footer-social{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap: 10px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.footer-social .social-icons a{ color: var(--header-text); }
+.footer-social .social-icons a:hover{ color: var(--accent); }
+
+.footer-divider{
+  max-width: var(--max-width);
+  margin: 26px auto;
+  border: none;
+  border-top: 1px solid var(--accent);
+}
+
+.footer-bottom{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 11px;
+  opacity: .8;
+  position: relative;
+}
+
+.footer-copy{
   position: absolute;
-  z-index: 0;
-  background: var(--accent);
-  opacity: .95;
-  filter: blur(.5px);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 }
 
-[data-theme="light"] .hero-blob{
-  background: var(--accent-darker);
-}
+.footer-lang{ 
+  display:flex; 
+  align-items:center; 
+  gap: 6px; }
 
-.blob-1{
-  width: 420px;
-  height: 420px;
-  top: -140px;
-  left: 34%;
-  border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
-}
-
-.blob-2{
-  width: 320px;
-  height: 320px;
-  bottom: -120px;
-  right: 6%;
-  border-radius: 60% 40% 35% 65% / 55% 60% 40% 45%;
-}
-
-/* ---- Citação ---- */
-.hero-quote{
-  position: relative;
-  z-index: 1;
-  max-width: 420px;
-  font-size: 26px;
-  font-weight: 700;
-  line-height: 1.35;
-  color: var(--text);
-  font-style: normal;
-}
-
-.hero-quote cite{
-  display: block;
-  margin-top: 14px;
-  font-size: 14px;
-  font-weight: 500;
-  font-style: normal;
-  color: var(--text-muted);
-}
-
-/* ---- Card de cadastro ---- */
-.cadastro-card{
-  position: relative;
-  z-index: 1;
-  max-width: 380px;
-  flex-shrink: 0;
-}
-
-@media (max-width: 900px){
-  .cadastro-hero{
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 80px 24px 60px;
-    min-height: auto;
-    gap: 50px;
-  }
-  .hero-quote{ max-width: 100%; }
-  .cadastro-card{ align-self: center; }
-}

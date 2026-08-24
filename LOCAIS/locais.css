@@ -235,3 +235,209 @@ h1, h2, h3{ font-family: var(--font-display); }
     opacity .3s ease;
 }
 
+/* DARK */
+
+[data-theme="dark"] .theme-toggle,
+:root:not([data-theme]) .theme-toggle {
+  background: #242424;
+}
+
+
+[data-theme="dark"] .theme-toggle img,
+:root:not([data-theme]) .theme-toggle img {
+  left: 76px;
+}
+
+
+[data-theme="dark"] .toggle-light,
+:root:not([data-theme]) .toggle-light {
+  display: none;
+}
+
+
+[data-theme="dark"] .toggle-dark,
+:root:not([data-theme]) .toggle-dark {
+  display: block;
+}
+
+
+/* LIGHT */
+
+[data-theme="light"] .theme-toggle {
+  background: #D9D9D9;
+}
+
+
+[data-theme="light"] .theme-toggle img {
+  left: 4px;
+}
+
+
+[data-theme="light"] .toggle-dark {
+  display: none;
+}
+
+
+[data-theme="light"] .toggle-light {
+  display: block;
+}
+
+
+/* =========================================================
+   CABEÇALHO DO EVENTO
+   ========================================================= */
+
+.event-header {
+  width: 100%;
+
+  max-width: 1020px;
+
+  margin: 0 auto 48px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.event-title {
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 20px;
+
+  flex-wrap: nowrap;
+}
+
+
+.event-title h1 {
+  color: var(--text);
+
+  font-size: 56px;
+
+  font-weight: 800;
+
+  line-height: 1.08;
+
+  letter-spacing: -1px;
+}
+
+
+.event-years {
+  padding-bottom: 5px;
+
+  white-space: nowrap;
+
+  color: var(--text);
+
+  font-size: 21px;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO DOS EVENTOS
+   ========================================================= */
+
+.event-nav {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  flex-shrink: 0;
+}
+
+
+.nav-arrow {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 13px;
+
+  background: var(--card-bg);
+
+  color: var(--text);
+
+  font-size: 42px;
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    transform .2s ease;
+}
+
+
+.nav-arrow:hover {
+  background: #888888;
+  transform: scale(1.03);
+}
+
+
+.event-nav-label {
+  min-width: 166px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 18px;
+
+  background: var(--card-bg);
+
+  color: var(--text);
+
+  border-radius: 13px;
+
+  text-align: center;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  line-height: 1.15;
+}
+
+
+/* =========================================================
+   GRID PRINCIPAL
+   ========================================================= */
+
+.event-grid {
+  width: 100%;
+
+  max-width: 1020px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1.08fr;
+
+  gap: 14px;
+
+  align-items: stretch;
+}

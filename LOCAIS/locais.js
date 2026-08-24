@@ -315,4 +315,11 @@ document.addEventListener('DOMContentLoaded', () => {
       renderEvent(currentEvent);
 
     });
+    
+ /* =======================================================
+     8. RENDERIZA EVENTO INICIAL
+  ======================================================= */
 
+  renderEvent(currentEvent);
+
+});

@@ -236,3 +236,83 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector(
       '.event-description'
     );
+
+     /* =======================================================
+     5. RENDERIZAÇÃO
+  ======================================================= */
+
+  function renderEvent(index) {
+
+    const event =
+      events[index];
+
+
+    titleEl.innerHTML =
+      event.title;
+
+
+    yearsEl.textContent =
+      event.years;
+
+
+    labelEl.innerHTML =
+      event.label;
+
+
+    locationEl.textContent =
+      event.location;
+
+
+    descriptionEl.textContent =
+      event.description;
+
+
+    map.setView(
+      event.coords,
+      11
+    );
+
+  }
+
+
+  /* =======================================================
+     6. BOTÃO ANTERIOR
+  ======================================================= */
+
+  document
+    .getElementById('prevEvent')
+    .addEventListener('click', () => {
+
+      if (events.length <= 1) {
+        return;
+      }
+
+      currentEvent =
+        (currentEvent - 1 + events.length) %
+        events.length;
+
+      renderEvent(currentEvent);
+
+    });
+
+
+  /* =======================================================
+     7. BOTÃO PRÓXIMO
+  ======================================================= */
+
+  document
+    .getElementById('nextEvent')
+    .addEventListener('click', () => {
+
+      if (events.length <= 1) {
+        return;
+      }
+
+      currentEvent =
+        (currentEvent + 1) %
+        events.length;
+
+      renderEvent(currentEvent);
+
+    });
+

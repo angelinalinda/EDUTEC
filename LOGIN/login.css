@@ -1,0 +1,263 @@
+/* =========================================================
+   GEOPOLISO — auth.css
+   Base compartilhada por login.html e cadastro.html.
+   Usa as mesmas CSS variables de style.css (tema claro/escuro).
+   ========================================================= */
+
+/* ---- Toggle de tema reposicionado (canto superior esquerdo) ---- */
+.auth-page .theme-toggle-container{
+  position: fixed;
+  top: 20px;
+  left: 24px;
+  z-index: 200;
+}
+
+.auth-page .theme-toggle{
+  position: static;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 56px;
+  height: 32px;
+  border-radius: 20px;
+  background: #000;
+  padding: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+[data-theme="light"] .auth-page .theme-toggle{
+  background: #fff;
+  border: 1px solid #d9d9d9;
+}
+
+.auth-page .theme-toggle img{
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: none;
+}
+
+.auth-page .theme-toggle .toggle-light{ display: block; }
+[data-theme="light"] .auth-page .theme-toggle .toggle-light{ display: none; }
+[data-theme="light"] .auth-page .theme-toggle .toggle-dark{ display: block; }
+
+/* ---- Cartão de autenticação ---- */
+.auth-card{
+  width: 100%;
+  max-width: 400px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 40px 36px 36px;
+  box-shadow: 0 14px 40px rgba(0,0,0,.22);
+  text-align: center;
+}
+
+.auth-title{
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.auth-subtitle{
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.accent-link{
+  color: var(--accent);
+  font-weight: 600;
+}
+.accent-link:hover{ text-decoration: underline; }
+
+.auth-form{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.field{ display:flex; flex-direction: column; gap: 4px; }
+
+.field input{
+  font-family: var(--font-display);
+  background: #FFFFFF;
+  color: #2A2A2A;
+  border: 1px solid #E4E4D4;
+  border-radius: 10px;
+  padding: 13px 16px;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.field input::placeholder{ color: #9A9A8E; }
+
+.field input:focus{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.field.has-error input{ border-color: #E0554F; }
+
+.field-error{
+  font-size: 12px;
+  color: #E0554F;
+  min-height: 14px;
+}
+
+.forgot-link{
+  align-self: flex-start;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: -6px;
+}
+.forgot-link:hover{ text-decoration: underline; }
+
+.form-msg{
+  font-size: 13px;
+  text-align: center;
+  min-height: 16px;
+}
+.form-msg.error{ color: #E0554F; }
+.form-msg.success{ color: var(--accent); }
+.form-msg a{ color: inherit; text-decoration: underline; font-weight: 600; }
+
+.btn-cta{
+  align-self: center;
+  font-family: var(--font-display);
+  background: var(--accent-dark);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  border-radius: 12px;
+  padding: 13px 56px;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background .2s, transform .1s;
+}
+.btn-cta:hover{ background: var(--accent-darker); }
+.btn-cta:active{ transform: scale(.98); }
+.btn-cta:disabled{ opacity: .6; cursor: not-allowed; }
+
+/* ---- Checkbox de termos (usado no cadastro) ---- */
+.terms-field{
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text);
+}
+.terms-field input{
+  margin-top: 3px;
+  accent-color: var(--accent);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.terms-field a{ color: var(--accent); font-weight: 600; }
+.terms-field a:hover{ text-decoration: underline; }
+
+@media (max-width: 480px){
+  .auth-card{ padding: 32px 22px 28px; }
+  .btn-cta{ padding: 13px 40px; width: 100%; }
+}
+
+
+/* =========================================================
+   GEOPOLISO — cadastro.css
+   Layout específico da tela de cadastro: hero com formas orgânicas
+   (blobs), citação à esquerda e card à direita.
+   ========================================================= */
+
+.cadastro-hero{
+  position: relative;
+  overflow: hidden;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 90px 60px 70px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ---- Formas orgânicas (blobs) decorativas ---- */
+.hero-blob{
+  position: absolute;
+  z-index: 0;
+  background: var(--accent);
+  opacity: .95;
+  filter: blur(.5px);
+}
+
+[data-theme="light"] .hero-blob{
+  background: var(--accent-darker);
+}
+
+.blob-1{
+  width: 420px;
+  height: 420px;
+  top: -140px;
+  left: 34%;
+  border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
+}
+
+.blob-2{
+  width: 320px;
+  height: 320px;
+  bottom: -120px;
+  right: 6%;
+  border-radius: 60% 40% 35% 65% / 55% 60% 40% 45%;
+}
+
+/* ---- Citação ---- */
+.hero-quote{
+  position: relative;
+  z-index: 1;
+  max-width: 420px;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text);
+  font-style: normal;
+}
+
+.hero-quote cite{
+  display: block;
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--text-muted);
+}
+
+/* ---- Card de cadastro ---- */
+.cadastro-card{
+  position: relative;
+  z-index: 1;
+  max-width: 380px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px){
+  .cadastro-hero{
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 24px 60px;
+    min-height: auto;
+    gap: 50px;
+  }
+  .hero-quote{ max-width: 100%; }
+  .cadastro-card{ align-self: center; }
+}

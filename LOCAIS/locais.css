@@ -1,0 +1,98 @@
+/* =========================================================
+   GEOPOLISO — style.css
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root{
+  /* ---- Tema ESCURO (padrão) ---- paleta enviada: FFFFFF / D9D9D9 / BBD048 / 788C0F / 4B5803 / 242424 */
+  --bg: #f6f6f6;
+  --bg-alt: #f6f6f6;
+  --text: #000000;
+  --text-muted: #2C2C2C;
+  --accent: #7B834F;
+  --accent-dark: #484D2C;
+  --accent-darker: #2D301D;
+  --card-bg: #d6d6d6;
+  --card-border: #2D301D;
+  --faq-bg: #d6d6d6;
+  --header-bg: #0d0d0d;
+  --header-text: #FFFFFF;
+  --toggle-track: #000000;
+  --toggle-thumb: #FFFFFF;
+  --toggle-icon: #000000;
+
+  /* Constantes de layout */
+  --max-width: 1200px;
+  --radius: 6px;
+  --font-display: 'Poppins', sans-serif;
+}
+
+[data-theme="light"]{
+  /* paleta enviada: 000000 / 2C2C2C / E2E6C7 / 7B834F / 484D2C / 2D301D */
+  --bg: #000000;
+  --bg-alt: #0a0a0a;
+  --text: #FFFFFF;
+  --text-muted: #D9D9D9;
+  --accent: #BBD048;
+  --accent-dark: #788C0F;
+  --accent-darker: #4B5803;
+  --card-bg: #242424;
+  --card-border: #BBD048;
+  --faq-bg: #242424;
+  --header-bg: #111111;
+  --header-text: #FFFFFF;
+  --toggle-track: #D9D9D9;
+  --toggle-thumb: #242424;
+  --toggle-icon: #FFFFFF;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+body{
+  font-family: var(--font-display);
+  background: var(--bg);
+  color: var(--text-strong);
+  transition: background .35s ease, color .35s ease;
+}
+
+a{ text-decoration:none; color:inherit; }
+
+html{ scroll-behavior: smooth; }
+
+h1, h2, h3{ font-family: var(--font-display); }
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 40px;
+  margin: 10px 20px 0;
+  background: var(--header-bg);
+  color: var(--header-text);
+  border-radius: 18px;
+  position: sticky;
+  top: 10px;
+  z-index: 100;
+  transition: background .35s ease, color .35s ease;
+}
+
+/* Logo + nav agrupados à esquerda, próximos um do outro (não centralizados no header) */
+.header-left{
+  display:flex;
+  align-items:center;
+  gap: 56px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+}
+.logo img{
+  height: 34px;
+  width: auto;
+  display:block;
+}

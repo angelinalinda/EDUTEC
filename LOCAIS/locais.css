@@ -441,3 +441,228 @@ h1, h2, h3{ font-family: var(--font-display); }
 
   align-items: stretch;
 }
+
+/* =========================================================
+   MÍDIA
+   ========================================================= */
+
+.event-media {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+
+.event-map,
+.event-photo {
+  width: 100%;
+
+  overflow: hidden;
+
+  border-radius: 0;
+
+  background: var(--card-bg);
+}
+
+
+.event-map {
+  height: 204px;
+}
+
+
+.event-photo {
+  height: 174px;
+}
+
+
+.event-photo img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   CARD DE INFORMAÇÕES
+   ========================================================= */
+
+.event-info {
+  min-height: 390px;
+
+  background: var(--card-bg);
+
+  border-radius: 0;
+
+  padding: 32px 30px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+
+.event-info h2 {
+  margin-bottom: 10px;
+
+  color: var(--text);
+
+  font-size: 36px;
+
+  font-weight: 800;
+
+  line-height: 1.1;
+}
+
+
+.event-location {
+  max-width: 440px;
+
+  color: var(--text);
+
+  font-size: 19px;
+
+  font-weight: 400;
+
+  line-height: 1.35;
+}
+
+
+.event-description {
+  max-width: 460px;
+
+  margin-top: auto;
+
+  color: var(--text);
+
+  font-size: 18px;
+
+  font-weight: 400;
+
+  line-height: 1.35;
+}
+
+/* =========================================================
+   CONTROLE DE CAMADAS DO MAPA
+   ========================================================= */
+
+.event-map {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   LEAFLET
+   ========================================================= */
+
+.event-map .leaflet-control-zoom {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+
+.event-map .leaflet-control-zoom a {
+  width: 38px;
+  height: 38px;
+
+  line-height: 38px;
+
+  background: #FFFFFF;
+
+  color: #000000;
+
+  border: none;
+
+  font-size: 20px;
+}
+
+
+.event-map .leaflet-control-zoom a:hover {
+  background: #EEEEEE;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer{
+  background: var(--header-bg);
+  color: var(--header-text);
+  padding: 40px;
+}
+
+.footer-top{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display:flex;
+  align-items:flex-start;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.footer-logo{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  font-size: 10px;
+  font-weight:700;
+  line-height:1.1;
+  color: var(--accent);
+}
+
+.footer-nav{
+  display:flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+.footer-nav a{ opacity: .85; transition: opacity .2s; }
+.footer-nav a:hover{ opacity: 1; color: var(--accent); }
+
+.footer-social{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap: 10px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.footer-social .social-icons a{ color: var(--header-text); }
+.footer-social .social-icons a:hover{ color: var(--accent); }
+
+.footer-divider{
+  max-width: var(--max-width);
+  margin: 26px auto;
+  border: none;
+  border-top: 1px solid var(--accent);
+}
+
+.footer-bottom{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 11px;
+  opacity: .8;
+  position: relative;
+}
+
+.footer-copy{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.footer-lang{ 
+  display:flex; 
+  align-items:center; 
+  gap: 6px; }

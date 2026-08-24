@@ -1,11 +1,30 @@
-/*=========================================================
-   GEOPOLISO — style.css
-   ========================================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
-
 :root{
-  /* ---- Tema ESCURO (padrão) ---- */
+  /* ---- Tema ESCURO (padrão) ---- paleta enviada: FFFFFF / D9D9D9 / BBD048 / 788C0F / 4B5803 / 242424 */
+  --bg: #f6f6f6;
+  --bg-alt: #f6f6f6;
+  --text: #000000;
+  --text-muted: #2C2C2C;
+  --accent: #7B834F;
+  --accent-dark: #484D2C;
+  --accent-darker: #2D301D;
+  --card-bg: #d6d6d6;
+  --card-border: #2D301D;
+  --faq-bg: #d6d6d6;
+  --header-bg: #0d0d0d;
+  --header-text: #FFFFFF;
+  --toggle-track: #000000;
+  --toggle-thumb: #FFFFFF;
+  --toggle-icon: #000000;
+  --red: #FF0000;
+
+  /* Constantes de layout */
+  --max-width: 1200px;
+  --radius: 6px;
+  --font-display: 'Poppins', sans-serif;
+}
+
+[data-theme="light"]{
+  /* paleta enviada: 000000 / 2C2C2C / E2E6C7 / 7B834F / 484D2C / 2D301D */
   --bg: #000000;
   --bg-alt: #0a0a0a;
   --text: #FFFFFF;
@@ -21,30 +40,8 @@
   --toggle-track: #D9D9D9;
   --toggle-thumb: #242424;
   --toggle-icon: #FFFFFF;
+    --red: #FF0000;
 
-  /* Constantes de layout */
-  --max-width: 1200px;
-  --radius: 6px;
-  --font-display: 'Poppins', sans-serif;
-}
-
-[data-theme="light"]{
-  /* paleta enviada: 000000 / 2C2C2C / E2E6C7 / 7B834F / 484D2C / 2D301D */
-  --bg: #E2E6C7;
-  --bg-alt: #EDEFDC;
-  --text: #000000;
-  --text-muted: #2C2C2C;
-  --accent: #7B834F;
-  --accent-dark: #484D2C;
-  --accent-darker: #2D301D;
-  --card-bg: #d7dbb9;
-  --card-border: #2D301D;
-  --faq-bg: #d7dbb9;
-  --header-bg: #0d0d0d;
-  --header-text: #FFFFFF;
-  --toggle-track: #000000;
-  --toggle-thumb: #FFFFFF;
-  --toggle-icon: #000000;
 }
 
 *{ box-sizing: border-box; margin:0; padding:0; }
@@ -73,17 +70,21 @@ section{
    HEADER
    ========================================================= */
 .header{
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 14px 40px;
+  padding: 18px 40px;
+  margin: 10px 20px 0;
   background: var(--header-bg);
   color: var(--header-text);
+  border-radius: 18px;
   position: sticky;
-  top:0;
+  top: 10px;
   z-index: 100;
+  transition: background .35s ease, color .35s ease;
 }
 
+/* Logo + nav agrupados à esquerda, próximos um do outro (não centralizados no header) */
 .header-left{
   display:flex;
   align-items:center;
@@ -109,7 +110,7 @@ section{
 
 .btn-entrar{
   background: var(--accent);
-  color: #111;
+  color: #fff;
   font-weight: 600;
   font-size: 14px;
   padding: 8px 16px;
@@ -123,47 +124,96 @@ section{
 .arrow{ font-weight: 700; }
 
 /* =========================================================
-   BOTÃO DE TEMA
+   THEME TOGGLE
    ========================================================= */
+/* Modo ESCURO do site -> pill clara (D9D9D9) com círculo escuro à DIREITA
+   Modo CLARO do site -> pill escura (preta) com círculo claro à ESQUERDA   */
+
 .theme-toggle{
-  position: absolute;
-  top: 66px;
-  right: 40px;
-  z-index: 99;
-  border:none;
-  cursor:pointer;
-  background: transparent;
-  padding: 0;
-}
-
-.toggle-track{
-  width: 58px;
-  height: 30px;
-  border-radius: 20px;
+  width: 100px;
+  height: 50px;
   background: var(--toggle-track);
-  display:flex;
-  align-items:center;
-  padding: 3px;
-  position: relative;
-  justify-content: flex-end; /* escuro: círculo à direita */
-  transition: background .3s;
-}
+  border: none;
+  border-radius: 50px;
+  padding: 4px;
+  cursor: pointer;
 
-.toggle-thumb{
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--toggle-thumb);
-  display:flex; align-items:center; justify-content:center;
-  color: var(--toggle-icon);
-  transition: background .3s, color .3s, transform .3s;
-}
-
-.globe-icon{ display:block; }
-
-[data-theme="light"] .toggle-track{
+  display: flex;
+  align-items: center;
   justify-content: flex-start;
+
+  position: relative;
+  margin-left: auto;
+  margin-right: 30px;
+  margin-top: 25px;
+
+  flex-shrink: 0;
+
+  transition:
+    background-color .3s ease,
+    transform .2s ease;
 }
+
+.theme-toggle:hover{
+  transform: scale(1.03);
+}
+
+.theme-toggle img{
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  left: 4px;
+  transition:
+    left .3s ease,
+    opacity .3s ease,
+    transform .3s ease;
+}
+
+[data-theme="dark"] .toggle-light{
+  display: none;
+}
+
+[data-theme="dark"] .toggle-dark{
+  display: block;
+}
+
+[data-theme="light"] .toggle-dark{
+  display: none;
+}
+
+[data-theme="light"] .toggle-light{
+  display: block;
+}
+
+/* Bolinha */
+[data-theme="light"] .theme-toggle img{
+  left: 4px;
+}
+
+[data-theme="dark"] .theme-toggle img{
+  left: 54px;
+}
+
+/* Tema escuro */
+[data-theme="dark"] .theme-toggle{
+  background: #242424;;
+}
+
+[data-theme="dark"] .theme-toggle img{
+  background: #D9D9D9 ;
+}
+
+/* Tema claro */
+[data-theme="light"] .theme-toggle{
+  background: #D9D9D9;
+}
+
+[data-theme="light"] .theme-toggle img{
+  background: #242424;
+}
+
 
 /* =========================================================
    JOGO — CONEXÕES GEOPOLÍTICAS (estilo Conexo)
@@ -348,7 +398,7 @@ section{
   to{ opacity:1; transform: translateY(0); }
 }
 
-/* =========================================================
+ /* =========================================================
    FOOTER
    ========================================================= */
 .footer{
@@ -422,11 +472,10 @@ section{
   text-align: center;
 }
 
-.footer-lang{
-  display:flex;
-  align-items:center;
-  gap: 6px;
-}
+.footer-lang{ 
+  display:flex; 
+  align-items:center; 
+  gap: 6px; }
 
 /* =========================================================
    RESPONSIVO

@@ -124,3 +124,50 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
   });
+  
+ /* =======================================================
+     2. MAPA
+  ======================================================= */
+
+  const volgogrado = [
+    48.7080,
+    44.5133
+  ];
+
+
+  const map = L.map('map', {
+
+    zoomControl: true,
+
+    scrollWheelZoom: false,
+
+    dragging: true,
+
+    doubleClickZoom: true,
+
+    touchZoom: true
+
+  }).setView(
+    volgogrado,
+    11
+  );
+
+
+  L.tileLayer(
+    'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    {
+      attribution:
+        '&copy; OpenStreetMap contributors &copy; CARTO',
+
+      subdomains: 'abcd',
+
+      maxZoom: 19
+    }
+  ).addTo(map);
+
+
+  L.marker(volgogrado)
+    .addTo(map)
+    .bindPopup(
+      'Stalingrado (atual Volgogrado)'
+    );

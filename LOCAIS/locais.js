@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
   });
-  
+
  /* =======================================================
      2. MAPA
   ======================================================= */
@@ -170,4 +170,69 @@ document.addEventListener('DOMContentLoaded', () => {
     .addTo(map)
     .bindPopup(
       'Stalingrado (atual Volgogrado)'
+    );
+
+     /* =======================================================
+     3. EVENTOS
+  ======================================================= */
+
+  const events = [
+
+    {
+      title:
+        'Batalha de<br>Stalingrado',
+
+      label:
+        'Batalha de<br>Stalingrado',
+
+      years:
+        '1942 - 1943',
+
+      location:
+        'Stalingrado, hoje Volgogrado, às margens do rio Volga, Rússia.',
+
+      description:
+        'Durante a Segunda Guerra Mundial, forças alemãs e seus aliados tentaram conquistar a cidade, mas foram cercadas pelo Exército Vermelho soviético. A rendição alemã tornou-se um grande ponto de virada na frente oriental do conflito.',
+
+      coords:
+        volgogrado
+    }
+
+  ];
+
+
+  let currentEvent = 0;
+
+
+  /* =======================================================
+     4. ELEMENTOS DO HTML
+  ======================================================= */
+
+  const titleEl =
+    document.querySelector(
+      '.event-title h1'
+    );
+
+
+  const yearsEl =
+    document.querySelector(
+      '.event-years'
+    );
+
+
+  const labelEl =
+    document.getElementById(
+      'eventLabel'
+    );
+
+
+  const locationEl =
+    document.querySelector(
+      '.event-location'
+    );
+
+
+  const descriptionEl =
+    document.querySelector(
+      '.event-description'
     );

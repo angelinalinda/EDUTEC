@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Conexões Geopolíticas</title>
+<title>Cores das Bandeiras — Resultado</title>
 <link rel="icon" id="favicon" type="image/svg+xml" href="">
-<link rel="stylesheet" href="jogo.css">
+<link rel="stylesheet" href="resultado.css">
 </head>
 <body>
 
@@ -20,8 +20,8 @@
     <nav class="nav">
       <a href="../index.html">Home</a>
       <a href="../TIMELINE/timeline.html">Timeline</a>
-      <a href="#conexoesgeopoliticas">Conexões Geopolíticas</a>
-      <a href="../JOGO2/jogo2.html">Game</a>
+      <a href="../JOGO/jogo.html">Conexões Geopolíticas</a>
+      <a href="#coresdomundo">Cores do mundo</a>
       <a href="../NOTICIAS/noticias.html">Notícias</a>
       <a href="../FILMESELIVROS/filmeselivros.html">Filmes e Livros</a>
       <a href="../CONTEUDO/conteudo.html">Conteúdo</a>
@@ -57,31 +57,16 @@
 </div>
 
 
-<!-- ===================== JOGO ===================== -->
+<!-- ===================== RESULTADO ===================== -->
 <main>
-<section id="game" class="game-section">
-  <h2>Conexões <span class="accent-word">Geopolíticas</span></h2>
-  <p class="game-instructions">Encontre os 4 grupos de 4 termos que têm algo em comum. 
-    Os temas mudam a cada partida, cuidado com palavras que parecem se encaixar em mais de um grupo!</p>
-
-  <div class="game-header">
-    <div class="mistakes">
-      <span>Erros restantes</span>
-      <div class="mistake-dots" id="mistakeDots"></div>
-    </div>
-    <button class="game-btn" id="newGameBtn" type="button">Novo jogo</button>
-  </div>
-
-  <div class="solved-groups" id="solvedGroups"></div>
-
-  <p class="game-toast" id="gameToast" role="status" aria-live="polite"></p>
-
-  <div class="tiles-grid" id="tilesGrid"></div>
-
-  <div class="game-controls">
-    <button class="game-btn" id="shuffleBtn" type="button">Baralhar</button>
-    <button class="game-btn" id="deselectBtn" type="button">Desfazer</button>
-    <button class="game-btn primary" id="submitBtn" type="button" disabled>Confirmar</button>
+<section class="result-section">
+  <div class="result-card">
+    <h2>FIM</h2>
+    <p class="result-sub">Obrigado por jogar!</p>
+    <p class="result-sub" style="margin-bottom:0;">Acertos:</p>
+    <div class="result-score" id="resultScore">0/10</div>
+    <p class="result-message" id="resultMessage"></p>
+    <button class="game-btn primary" id="exitBtn" type="button">Sair</button>
   </div>
 </section>
 </main>
@@ -96,11 +81,11 @@
     </div>
 
     <nav class="footer-nav">
-      <a href="../index.html">Home</a>
+       <a href="../index.html">Home</a>
       <a href="../LOCAIS/locais.html">Locais</a>
       <a href="../TIMELINE/timeline.html">Timeline</a>
-      <a href="#conexoesgeopoliticas">Conexões Geopolíticas</a>
-      <a href="../JOGO2/jogo2.html">Cores do Mundo</a>
+      <a href="../JOGO/jogo.html">Conexões Geopolíticas</a>
+      <a href="#coresdomundo">Cores do Mundo</a>
       <a href="../NOTICIAS/noticias.html">Notícias</a>
       <a href="../FILMESELIVROS/filmeselivros.html">Filmes e Livros</a>
       <a href="../CONTEUDO/conteudo.html">Conteúdo</a>
@@ -130,15 +115,6 @@
   </div>
 </footer>
 
-<!-- ===================== MODAL FIM DE JOGO ===================== -->
-<div class="game-overlay" id="gameOverlay">
-  <div class="game-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <h3 id="modalTitle"></h3>
-    <p id="modalText"></p>
-    <button class="game-btn primary" id="playAgainBtn" type="button">Jogar novamente</button>
-  </div>
-</div>
-
-    <script src="partida.js"></script>
+    <script src="resultado.js"></script>
 </body>
 </html>

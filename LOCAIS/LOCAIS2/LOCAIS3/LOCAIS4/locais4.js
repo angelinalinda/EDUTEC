@@ -4,8 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-
-
+  
   /* =======================================================
      1. TEMA
   ======================================================= */
@@ -128,51 +127,51 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
  /* =======================================================
-     2. MAPA
-  ======================================================= */
+   2. MAPA — OKINAWA / RYUKYU
+======================================================= */
 
-  const volgogrado = [
-    48.7080,
-    44.5133
-  ];
+const okinawa = [
+  26.2124,
+  127.6809
+];
 
 
-  const map = L.map('map', {
+const map = L.map('map', {
 
-    zoomControl: true,
+  zoomControl: true,
 
-    scrollWheelZoom: false,
+  scrollWheelZoom: false,
 
-    dragging: true,
+  dragging: true,
 
-    doubleClickZoom: true,
+  doubleClickZoom: true,
 
-    touchZoom: true
+  touchZoom: true
 
-  }).setView(
-    volgogrado,
-    11
+}).setView(
+  okinawa,
+  8
+);
+
+
+L.tileLayer(
+  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+  {
+    attribution:
+      '&copy; OpenStreetMap contributors &copy; CARTO',
+
+    subdomains: 'abcd',
+
+    maxZoom: 19
+  }
+).addTo(map);
+
+
+L.marker(okinawa)
+  .addTo(map)
+  .bindPopup(
+    'Ilha de Okinawa — Japão'
   );
-
-
-  L.tileLayer(
-    'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    {
-      attribution:
-        '&copy; OpenStreetMap contributors &copy; CARTO',
-
-      subdomains: 'abcd',
-
-      maxZoom: 19
-    }
-  ).addTo(map);
-
-
-  L.marker(volgogrado)
-    .addTo(map)
-    .bindPopup(
-      'Stalingrado (atual Volgogrado)'
-    );
 
      /* =======================================================
      3. EVENTOS
@@ -180,27 +179,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const events = [
 
-    {
-      title:
-        'Batalha de<br>Stalingrado',
+  {
+    title: 'Okinawa',
+    years: 'Japão',
+    label: 'ILHA',
+    location: 'Ilha de Okinawa, Japão',
+    description: 'A principal ilha da província de Okinawa.',
+    coords: [26.2124, 127.6809]
+  },
 
-      label:
-        'Batalha de<br>Stalingrado',
+  {
+    title: 'Naha',
+    years: 'Japão',
+    label: 'CAPITAL',
+    location: 'Naha, Okinawa',
+    description: 'Capital da província de Okinawa.',
+    coords: [26.2124, 127.6792]
+  },
 
-      years:
-        '1942 - 1943',
+  {
+    title: 'Arquipélago Ryukyu',
+    years: 'Japão',
+    label: 'ARQUIPÉLAGO',
+    location: 'Ilhas Ryukyu, Japão',
+    description: 'Conjunto de ilhas que se estende entre o sul do Japão e Taiwan.',
+    coords: [25.8000, 128.0000]
+  }
 
-      location:
-        'Stalingrado, hoje Volgogrado, às margens do rio Volga, Rússia.',
-
-      description:
-        'Durante a Segunda Guerra Mundial, forças alemãs e seus aliados tentaram conquistar a cidade, mas foram cercadas pelo Exército Vermelho soviético. A rendição alemã tornou-se um grande ponto de virada na frente oriental do conflito.',
-
-      coords:
-        volgogrado
-    }
-
-  ];
+];
 
 
   let currentEvent = 0;

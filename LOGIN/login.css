@@ -6,6 +6,34 @@
  
 :root{
   /* ---- Tema ESCURO (padrão) */
+ --bg: #fffcfc;
+  --bg-alt: #f6f6f6;
+  --text: #000000;
+  --text-muted: #2C2C2C;
+  --accent: #7B834F;
+  --accent-dark: #484D2C;
+  --accent-darker: #2D301D;
+  --card-bg: #d6d6d6;
+  --card-border: #2D301D;
+  --faq-bg: #d6d6d6;
+  --header-bg: #0d0d0d;
+  --header-text: #FFFFFF;
+  --toggle-track: #000000;
+  --toggle-thumb: #FFFFFF;
+  --toggle-icon: #000000;
+ 
+  /* Constantes de layout */
+  --max-width: 1200px;
+  --radius: 6px;
+  --font-display: 'Poppins', sans-serif;
+ 
+  /* NOVO: cor das formas orgânicas (blobs) da página de Cadastro
+     tema escuro = verde-limão (accent) */
+  --blob-color: var(--accent);
+}
+ 
+[data-theme="light"]{
+  /* paleta clara: 000000 / 2C2C2C / E2E6C7 / 7B834F / 484D2C / 2D301D */
   --bg: #000000;
   --bg-alt: #0a0a0a;
   --text: #FFFFFF;
@@ -21,34 +49,6 @@
   --toggle-track: #D9D9D9;
   --toggle-thumb: #242424;
   --toggle-icon: #FFFFFF;
- 
-  /* Constantes de layout */
-  --max-width: 1200px;
-  --radius: 6px;
-  --font-display: 'Poppins', sans-serif;
- 
-  /* NOVO: cor das formas orgânicas (blobs) da página de Cadastro
-     tema escuro = verde-limão (accent) */
-  --blob-color: var(--accent);
-}
- 
-[data-theme="light"]{
-  /* paleta clara: 000000 / 2C2C2C / E2E6C7 / 7B834F / 484D2C / 2D301D */
-  --bg: #E2E6C7;
-  --bg-alt: #EDEFDC;
-  --text: #000000;
-  --text-muted: #2C2C2C;
-  --accent: #7B834F;
-  --accent-dark: #484D2C;
-  --accent-darker: #2D301D;
-  --card-bg: #d7dbb9; /* Ajuste para o cinza do design claro conforme imagens */
-  --card-border: #2D301D;
-  --faq-bg: #d7dbb9;
-  --header-bg: #0d0d0d;
-  --header-text: #FFFFFF;
-  --toggle-track: #000000;
-  --toggle-thumb: #FFFFFF;
-  --toggle-icon: #000000;
  
  
   --blob-color: var(--accent-darker);

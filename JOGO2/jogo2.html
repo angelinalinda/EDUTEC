@@ -7,6 +7,7 @@
 <!-- Favicon (ícone de mundo) - troca de cor conforme o tema via script.js -->
 <link rel="icon" id="favicon" type="image/svg+xml" href="">
 <link rel="stylesheet" href="jogo2.css">
+
 </head>
 <body>
 
@@ -128,8 +129,8 @@
   </p>
 
   <div class="intro-buttons">
-    <button class="game-btn primary" id="soloBtn" type="button">Jogar</button>
-  </div>
+    <a href="jogar.html" class="game-btn primary">Jogar</a>
+</div>
 </section>
 </main>
 
@@ -176,30 +177,6 @@
     <div class="footer-copy">2026 © GEOPOLISO</div>
   </div>
 </footer>
-
-<!-- ===================== MODAL: CRIAR / ENTRAR EM SALA ===================== -->
-<div class="game-overlay" id="roomOverlay">
-  <div class="game-modal" role="dialog" aria-modal="true" aria-labelledby="roomModalTitle">
-    <h3 id="roomModalTitle"></h3>
-    <p id="roomModalText"></p>
-
-    <div id="roomCreateView" style="display:none;">
-      <div class="room-code-display" id="roomCodeDisplay"></div>
-      <div class="modal-actions">
-        <button class="game-btn" id="roomCancelBtn" type="button">Cancelar</button>
-        <button class="game-btn primary" id="roomStartBtn" type="button">Iniciar partida</button>
-      </div>
-    </div>
-
-    <div id="roomJoinView" style="display:none;">
-      <input class="room-input" id="roomCodeInput" type="text" maxlength="6" placeholder="CÓDIGO">
-      <div class="modal-actions">
-        <button class="game-btn" id="roomJoinCancelBtn" type="button">Cancelar</button>
-        <button class="game-btn primary" id="roomJoinConfirmBtn" type="button">Entrar</button>
-      </div>
-    </div>
-  </div>
-</div>
 
     <script src="jogo2.js"></script>
     <script src="auth.js" defer></script>

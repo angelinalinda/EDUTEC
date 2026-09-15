@@ -4,8 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-
-
+ 
   /* =======================================================
      1. TEMA
   ======================================================= */
@@ -128,51 +127,51 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
  /* =======================================================
-     2. MAPA
-  ======================================================= */
+   2. MAPA — FAIXA DE GAZA
+======================================================= */
 
-  const volgogrado = [
-    48.7080,
-    44.5133
-  ];
+const gaza = [
+  31.3547,
+  34.3088
+];
 
 
-  const map = L.map('map', {
+const map = L.map('map', {
 
-    zoomControl: true,
+  zoomControl: true,
 
-    scrollWheelZoom: false,
+  scrollWheelZoom: false,
 
-    dragging: true,
+  dragging: true,
 
-    doubleClickZoom: true,
+  doubleClickZoom: true,
 
-    touchZoom: true
+  touchZoom: true
 
-  }).setView(
-    volgogrado,
-    11
+}).setView(
+  gaza,
+  10
+);
+
+
+L.tileLayer(
+  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+  {
+    attribution:
+      '&copy; OpenStreetMap contributors &copy; CARTO',
+
+    subdomains: 'abcd',
+
+    maxZoom: 19
+  }
+).addTo(map);
+
+
+L.marker(gaza)
+  .addTo(map)
+  .bindPopup(
+    'Faixa de Gaza'
   );
-
-
-  L.tileLayer(
-    'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    {
-      attribution:
-        '&copy; OpenStreetMap contributors &copy; CARTO',
-
-      subdomains: 'abcd',
-
-      maxZoom: 19
-    }
-  ).addTo(map);
-
-
-  L.marker(volgogrado)
-    .addTo(map)
-    .bindPopup(
-      'Stalingrado (atual Volgogrado)'
-    );
 
      /* =======================================================
      3. EVENTOS
@@ -180,30 +179,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const events = [
 
-    {
-      title:
-        'Batalha de<br>Stalingrado',
+  {
+    title: 'Faixa de Gaza',
+    years: 'Oriente Médio',
+    label: 'TERRITÓRIO',
+    location: 'Faixa de Gaza',
+    description: 'Território palestino situado na costa do Mediterrâneo.',
+    coords: [31.3547, 34.3088]
+  },
 
-      label:
-        'Batalha de<br>Stalingrado',
+  {
+    title: 'Gaza',
+    years: 'Faixa de Gaza',
+    label: 'CIDADE',
+    location: 'Cidade de Gaza',
+    description: 'Principal cidade da Faixa de Gaza.',
+    coords: [31.5017, 34.4668]
+  },
 
-      years:
-        '1942 - 1943',
+  {
+    title: 'Rafah',
+    years: 'Faixa de Gaza',
+    label: 'CIDADE',
+    location: 'Rafah',
+    description: 'Cidade localizada no extremo sul da Faixa de Gaza, próxima à fronteira com o Egito.',
+    coords: [31.2969, 34.2436]
+  },
 
-      location:
-        'Stalingrado, hoje Volgogrado, às margens do rio Volga, Rússia.',
+  {
+    title: 'Sul de Israel',
+    years: 'Israel',
+    label: 'REGIÃO',
+    location: 'Sul de Israel',
+    description: 'Área localizada próxima à Faixa de Gaza.',
+    coords: [31.4500, 34.6500]
+  }
 
-      description:
-        'Durante a Segunda Guerra Mundial, forças alemãs e seus aliados tentaram conquistar a cidade, mas foram cercadas pelo Exército Vermelho soviético. A rendição alemã tornou-se um grande ponto de virada na frente oriental do conflito.',
-
-      coords:
-        volgogrado
-    }
-
-  ];
-
-
-  let currentEvent = 0;
+];
+  
 
 
   /* =======================================================

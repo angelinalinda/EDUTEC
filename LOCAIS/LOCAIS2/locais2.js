@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
   /* =======================================================
      1. TEMA
   ======================================================= */
@@ -128,82 +130,124 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
  /* =======================================================
-     2. MAPA
-  ======================================================= */
+   2. MAPA — UCRÂNIA
+======================================================= */
 
-  const volgogrado = [
-    48.7080,
-    44.5133
-  ];
-
-
-  const map = L.map('map', {
-
-    zoomControl: true,
-
-    scrollWheelZoom: false,
-
-    dragging: true,
-
-    doubleClickZoom: true,
-
-    touchZoom: true
-
-  }).setView(
-    volgogrado,
-    11
-  );
+const ucrania = [
+  48.3794,
+  31.1656
+];
 
 
-  L.tileLayer(
-    'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    {
-      attribution:
-        '&copy; OpenStreetMap contributors &copy; CARTO',
+const map = L.map('map', {
 
-      subdomains: 'abcd',
+  zoomControl: true,
 
-      maxZoom: 19
-    }
-  ).addTo(map);
+  scrollWheelZoom: false,
 
+  dragging: true,
 
-  L.marker(volgogrado)
-    .addTo(map)
-    .bindPopup(
-      'Stalingrado (atual Volgogrado)'
-    );
+  doubleClickZoom: true,
 
-     /* =======================================================
-     3. EVENTOS
-  ======================================================= */
+  touchZoom: true
 
-  const events = [
-
-    {
-      title:
-        'Batalha de<br>Stalingrado',
-
-      label:
-        'Batalha de<br>Stalingrado',
-
-      years:
-        '1942 - 1943',
-
-      location:
-        'Stalingrado, hoje Volgogrado, às margens do rio Volga, Rússia.',
-
-      description:
-        'Durante a Segunda Guerra Mundial, forças alemãs e seus aliados tentaram conquistar a cidade, mas foram cercadas pelo Exército Vermelho soviético. A rendição alemã tornou-se um grande ponto de virada na frente oriental do conflito.',
-
-      coords:
-        volgogrado
-    }
-
-  ];
+}).setView(
+  ucrania,
+  6
+);
 
 
-  let currentEvent = 0;
+L.tileLayer(
+  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+  {
+    attribution:
+      '&copy; OpenStreetMap contributors &copy; CARTO',
+
+    subdomains: 'abcd',
+
+    maxZoom: 19
+  }
+).addTo(map);
+
+
+/* Marcador inicial — Kyiv */
+
+L.marker([
+  50.4501,
+  30.5234
+])
+.addTo(map)
+.bindPopup(
+  'Kyiv — Ucrânia'
+);
+
+
+const events = [
+
+  {
+    title: 'Kyiv',
+    years: 'Ucrânia',
+    label: 'CAPITAL',
+    location: 'Kyiv, Ucrânia',
+    description: 'Capital da Ucrânia.',
+    coords: [50.4501, 30.5234]
+  },
+
+  {
+    title: 'Donetsk',
+    years: 'Ucrânia',
+    label: 'REGIÃO',
+    location: 'Donetsk, Ucrânia',
+    description: 'Região localizada no leste da Ucrânia.',
+    coords: [48.0159, 37.8028]
+  },
+
+  {
+    title: 'Luhansk',
+    years: 'Ucrânia',
+    label: 'REGIÃO',
+    location: 'Luhansk, Ucrânia',
+    description: 'Região localizada no leste da Ucrânia.',
+    coords: [48.5740, 39.3078]
+  },
+
+  {
+    title: 'Zaporizhzhia',
+    years: 'Ucrânia',
+    label: 'REGIÃO',
+    location: 'Zaporizhzhia, Ucrânia',
+    description: 'Região localizada no sudeste da Ucrânia.',
+    coords: [47.8388, 35.1396]
+  },
+
+  {
+    title: 'Kherson',
+    years: 'Ucrânia',
+    label: 'REGIÃO',
+    location: 'Kherson, Ucrânia',
+    description: 'Região localizada no sul da Ucrânia.',
+    coords: [46.6354, 32.6169]
+  },
+
+  {
+    title: 'Kharkiv',
+    years: 'Ucrânia',
+    label: 'CIDADE',
+    location: 'Kharkiv, Ucrânia',
+    description: 'Uma das principais cidades do leste da Ucrânia.',
+    coords: [49.9935, 36.2304]
+  },
+
+  {
+    title: 'Odesa',
+    years: 'Ucrânia',
+    label: 'CIDADE',
+    location: 'Odesa, Ucrânia',
+    description: 'Importante cidade portuária localizada no sul da Ucrânia.',
+    coords: [46.4825, 30.7233]
+  }
+
+];
 
 
   /* =======================================================

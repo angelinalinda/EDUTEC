@@ -1,7 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 :root{
-  --bg: #000000;
+   --bg: #f6f6f6;
+  --bg-alt: #f6f6f6;
+  --text: #000000;
+  --text-muted: #2C2C2C;
+  --accent: #7B834F;
+  --accent-dark: #484D2C;
+  --accent-darker: #2D301D;
+  --card-bg: #d6d6d6;
+  --card-border: #2D301D;
+  --faq-bg: #d6d6d6;
+  --header-bg: #0d0d0d;
+  --header-text: #FFFFFF;
+  --toggle-track: #000000;
+  --toggle-thumb: #FFFFFF;
+  --toggle-icon: #000000;
+  --red: #FF0000;
+
+  --max-width: 1200px;
+  --radius: 6px;
+  --font-display: 'Poppins', sans-serif;
+
+  /* --- Timeline: tokens específicos --- */
+   --timeline-card-bg: var(--accent);
+  --timeline-card-text: #1A1A1A;
+  --timeline-year-color: #FFFFFF;
+  --timeline-place-color: #E8E8E8;
+  --timeline-overlay: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.6) 100%);
+  --timeline-grayscale: 85%;
+}
+
+[data-theme="light"]{
+  
+    --bg: #000000;
   --bg-alt: #0a0a0a;
   --text: #FFFFFF;
   --text-muted: #D9D9D9;
@@ -17,44 +49,14 @@
   --toggle-thumb: #242424;
   --toggle-icon: #FFFFFF;
   
-
-  --max-width: 1200px;
-  --radius: 6px;
-  --font-display: 'Poppins', sans-serif;
-
-  /* --- Timeline: tokens específicos --- */
-  --timeline-card-bg: var(--accent);
-  --timeline-card-text: #1A1A1A;
-  --timeline-year-color: #FFFFFF;
-  --timeline-place-color: #E8E8E8;
-  --timeline-overlay: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.6) 100%);
-  --timeline-grayscale: 85%;
-}
-
-[data-theme="light"]{
-  --bg: #eff0ec;
-  --bg-alt: #EDEFDC;
-  --text: #000000;
-  --text-muted: #2C2C2C;
-  --accent: #7B834F;
-  --accent-dark: #484D2C;
-  --accent-darker: #2D301D;
-  --card-bg: #d7dbb9;
-  --card-border: #2D301D;
-  --faq-bg: #d7dbb9;
-  --header-bg: #0d0d0d;
-  --header-text: #FFFFFF;
-  --toggle-track: #000000;
-  --toggle-thumb: #FFFFFF;
-  --toggle-icon: #000000;
-  
   /* --- Timeline: ajustes no tema light --- */
-  --timeline-card-bg: var(--accent);
+   --timeline-card-bg: var(--accent);
   --timeline-card-text: #FFFFFF;
   --timeline-year-color: #FFFFFF;
   --timeline-place-color: #F0F0F0;
   --timeline-overlay: linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.40) 55%, rgba(0,0,0,.62) 100%);
   --timeline-grayscale: 60%;
+  
 }
 
 *{ box-sizing: border-box; margin:0; padding:0; }
@@ -155,6 +157,7 @@ section{
   justify-content: flex-start;
 
   position: relative;
+  z-index: 20;
   margin-left: auto;
   margin-right: 30px;
   margin-top: 25px;
@@ -227,131 +230,311 @@ section{
 }
 
 
-/* =====================================================
+/* =========================================================
    TIMELINE
-===================================================== */
+========================================================= */
 
 .timeline{
+  position: relative;
   max-width: none;
   margin: 0;
   padding: 0;
+
+  /* Degradê de transição antes da timeline */
+  border-top: 90px solid transparent;
+  background:
+    linear-gradient(
+      to bottom,
+      var(--bg) 0%,
+      var(--bg) 35%,
+      rgba(123, 131, 79, 0.12) 70%,
+      rgba(123, 131, 79, 0.28) 100%
+    );
 }
+
+/* Primeiro bloco da timeline */
+.timeline-block:first-child{
+  margin-top: -90px;
+}
+
+/* =========================================================
+   BLOCO
+========================================================= */
 
 .timeline-block{
   position: relative;
   width: 100%;
   min-height: 600px;
+
   display: flex;
   align-items: center;
+
   overflow: hidden;
   cursor: pointer;
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
   isolation: isolate;
 }
 
+/* Camada escura sobre a imagem */
 .timeline-block::before{
   content: "";
   position: absolute;
   inset: 0;
+
   background: var(--timeline-overlay);
+
   backdrop-filter: grayscale(var(--timeline-grayscale));
   -webkit-backdrop-filter: grayscale(var(--timeline-grayscale));
+
   z-index: 0;
+
   transition: background .35s ease;
 }
 
-.timeline-block .timeline-bg-img{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(var(--timeline-grayscale)) contrast(1.05);
-  z-index: -1;
-  transition: filter .35s ease;
-}
+/* =========================================================
+   INFORMAÇÕES — DATA E LOCAL
+========================================================= */
 
-/* Ano + local do acontecimento */
 .timeline-info{
   position: absolute;
+
   bottom: 40px;
+
   z-index: 2;
+
   color: var(--timeline-year-color);
+
   pointer-events: none;
+
+  max-width: 42%;
 }
 
 .timeline-info .timeline-year{
   display: block;
+
   font-size: clamp(38px, 4.5vw, 56px);
+
   font-weight: 700;
+
   line-height: 1;
+
   letter-spacing: 1px;
 }
 
 .timeline-info .timeline-place{
   display: block;
+
   margin-top: 6px;
+
   font-size: 14px;
+
   font-weight: 500;
+
   color: var(--timeline-place-color);
 }
 
-/* Card descritivo */
+/* =========================================================
+   CARD / BALÃO
+========================================================= */
+
 .timeline-card{
   position: absolute;
+
   z-index: 3;
-  max-width: 560px;
+
   width: min(44%, 560px);
+  max-width: 560px;
+
   background: var(--timeline-card-bg);
   color: var(--timeline-card-text);
+
   border-radius: 28px;
+
   padding: 32px 36px;
+
   font-size: 15px;
   line-height: 1.65;
   font-weight: 500;
+
   box-shadow: 0 12px 30px rgba(0,0,0,.35);
 
-  /* estado inicial: oculto */
   opacity: 0;
-  transform: translateY(14px) scale(.98);
+
   pointer-events: none;
-  transition: opacity .4s ease, transform .4s ease, background .35s ease, color .35s ease;
+
+  transition:
+    opacity .4s ease,
+    transform .4s ease,
+    background .35s ease,
+    color .35s ease;
 }
 
 .timeline-block.is-active .timeline-card{
   opacity: 1;
-  transform: translateY(0) scale(1);
   pointer-events: auto;
 }
 
-/* Alternância de lados */
-.timeline-block[data-align="right"] .timeline-info{ left: 40px; }
-.timeline-block[data-align="right"] .timeline-card{ top: 50%; right: 60px; transform: translateY(calc(-50% + 14px)) scale(.98); }
-.timeline-block[data-align="right"].is-active .timeline-card{ transform: translateY(-50%) scale(1); }
+/* =========================================================
+   LADO DIREITO
+   DATA = ESQUERDA
+   BALÃO = DIREITA
+========================================================= */
 
-.timeline-block[data-align="left"] .timeline-info{ right: 40px; }
-.timeline-block[data-align="left"] .timeline-card{ top: 50%; left: 60px; transform: translateY(calc(-50% + 14px)) scale(.98); }
-.timeline-block[data-align="left"].is-active .timeline-card{ transform: translateY(-50%) scale(1); }
+.timeline-block[data-align="right"] .timeline-info{
+  left: 6%;
+  right: auto;
+  text-align: left;
+}
+
+.timeline-block[data-align="right"] .timeline-card{
+  top: 50%;
+  right: 6%;
+  left: auto;
+
+  transform:
+    translateY(calc(-50% + 14px))
+    scale(.98);
+}
+
+.timeline-block[data-align="right"].is-active .timeline-card{
+  transform:
+    translateY(-50%)
+    scale(1);
+}
+
+/* =========================================================
+   LADO ESQUERDO
+   BALÃO = ESQUERDA
+   DATA = DIREITA
+========================================================= */
+
+.timeline-block[data-align="left"] .timeline-info{
+  right: 6%;
+  left: auto;
+  text-align: right;
+}
+
+.timeline-block[data-align="left"] .timeline-card{
+  top: 50%;
+  left: 6%;
+  right: auto;
+
+  transform:
+    translateY(calc(-50% + 14px))
+    scale(.98);
+}
+
+.timeline-block[data-align="left"].is-active .timeline-card{
+  transform:
+    translateY(-50%)
+    scale(1);
+}
+
+/* =========================================================
+   TRANSIÇÃO ENTRE O BOTÃO E A TIMELINE
+========================================================= */
+
+.timeline{
+  position: relative;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Faixa clara de transição */
+.timeline::before{
+  content: "";
+  position: absolute;
+
+  top: -110px;
+  left: 0;
+
+  width: 100%;
+  height: 110px;
+
+  background: linear-gradient(
+    to bottom,
+    var(--bg) 0%,
+    rgba(246, 246, 246, 0.92) 35%,
+    rgba(246, 246, 246, 0.55) 70%,
+    rgba(246, 246, 246, 0) 100%
+  );
+
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
 
 @media (max-width: 900px){
-  .timeline-block{ min-height: 420px; }
+
+  .timeline{
+    border-top: 60px solid transparent;
+
+    background:
+      linear-gradient(
+        to bottom,
+        var(--bg) 0%,
+        rgba(123, 131, 79, 0.18) 100%
+      );
+  }
+
+  .timeline-block:first-child{
+    margin-top: -60px;
+  }
+
+  .timeline-block{
+    min-height: 500px;
+  }
+
+  /* Esconde linha central no celular */
+  .timeline::after{
+    display: none;
+  }
+
   .timeline-card{
     width: calc(100% - 40px);
+
     max-width: none;
+
     left: 20px !important;
     right: 20px !important;
+
     top: auto !important;
     bottom: 90px;
-    transform: translateY(10px) scale(.98) !important;
-    padding: 22px 22px;
+
+    transform:
+      translateY(10px)
+      scale(.98) !important;
+
+    padding: 22px;
+
     font-size: 14px;
   }
+
   .timeline-block.is-active .timeline-card{
-    transform: translateY(0) scale(1) !important;
+    transform:
+      translateY(0)
+      scale(1) !important;
   }
-  .timeline-info{ bottom: 24px; }
+
+  .timeline-info{
+    bottom: 24px;
+
+    left: 20px !important;
+    right: 20px !important;
+
+    max-width: none;
+
+    text-align: left !important;
+  }
+
 }
 
 .footer{

@@ -55,6 +55,8 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+
+
     initTheme();
     loadResult();
     initExitButton();

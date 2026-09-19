@@ -9,7 +9,61 @@
 <link rel="icon" id="favicon" type="image/svg+xml" href="">
 </head>
 <body>
- 
+ <!-- =========================================================
+     TELA DE CARREGAMENTO — GEOPOLISO
+     ========================================================= -->
+<div class="geopoliso-loader" id="geopolisoLoader">
+
+  <div class="loader-content">
+
+
+    <!-- Globo -->
+    <div class="loader-globe">
+
+      <div class="globe">
+        <div class="globe-line horizontal"></div>
+        <div class="globe-line vertical"></div>
+        <div class="globe-line diagonal"></div>
+        <div class="globe-line diagonal reverse"></div>
+      </div>
+
+      <!-- Pontos de conexão -->
+      <span class="globe-dot dot-1"></span>
+      <span class="globe-dot dot-2"></span>
+      <span class="globe-dot dot-3"></span>
+      <span class="globe-dot dot-4"></span>
+
+    </div>
+
+    <!-- Texto -->
+    <div class="loader-text">
+      <span id="loaderStatus">CONECTANDO AO MUNDO</span>
+      <span class="loader-dots">...</span>
+    </div>
+
+    <!-- Barra de progresso -->
+    <div class="loader-progress">
+      <div class="loader-progress-bar" id="loaderProgressBar"></div>
+    </div>
+
+    <!-- Curiosidade -->
+    <div class="loader-fact">
+      <span class="fact-label">VOCÊ SABIA?</span>
+
+      <p id="geopoliticalFact">
+        Carregando uma curiosidade geopolítica...
+      </p>
+    </div>
+
+    <!-- Aviso de clique -->
+    <button class="loader-skip" id="loaderSkip" type="button">
+      Clique para entrar →
+    </button>
+
+  </div>
+
+</div>
+
 
 <!-- ===================== HEADER ===================== -->
 <header class="header">

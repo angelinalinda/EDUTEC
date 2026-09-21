@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="conteudo.css">
+  <link rel="stylesheet" href="../responsivo-geopoliso.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
@@ -73,7 +74,7 @@
         <a href="../JOGO2/jogo2.html">Cores do Mundo</a>  
         <a href="../NOTICIAS/noticias.html">Notícias</a>  
         <a href="../FILMESELIVROS/filmeselivros.html">Filmes e Livros</a>  
-        <a href="../CONTEUDO/conteudo.html">Conteúdo</a>  
+        <a href="../CONTEUDO/conteudo.html">Geopolitica Continental</a>  
       </nav>  
     </div>  
     
@@ -117,6 +118,12 @@
         <div id="globeHint">Arraste para girar · Scroll para zoom · Clique num continente</div>
       </div>
 
+      <section class="geo-intro" aria-labelledby="geoIntroTitle">
+        <h2 id="geoIntroTitle">Geopolítica em uma frase: quem controla o quê, e por quê</h2>
+        <p>Geopolítica estuda como território, recursos, rotas e poder moldam as relações entre Estados. Estreitos como Ormuz, Malaca e Suez, minerais críticos, energia, tecnologia e alianças militares explicam por que certas regiões concentram tanta atenção internacional.</p>
+        <p>Hoje o sistema internacional é marcado pela competição entre grandes potências, pela reorganização das cadeias de suprimento, pelo degelo do Ártico e pela pressão climática sobre os Estados mais vulneráveis. Escolha um continente no globo para ver esse quadro em detalhe.</p>
+      </section>
+
       <div class="accessible-nav">
         <h3>Navegação direta por continente (Acessibilidade):</h3>
         <div class="accessible-buttons" id="accessibleButtons"></div>
@@ -127,6 +134,8 @@
     <div id="countryListView" class="view-panel">
       <button class="back-btn" data-target="world">← Voltar para o Globo</button>
       <h2 id="countryListTitle">Países</h2>
+      <figure id="countryListFigure" class="cp-list-figure"></figure>
+      <p id="countryListIntro" class="cp-list-intro"></p>
       <p class="hint">Selecione um país para ler sua análise geopolítica detalhada.</p>
       <div class="country-grid" id="countryGrid"></div>
     </div>
@@ -135,7 +144,6 @@
     <div id="contentView" class="view-panel">
       <button class="back-btn" id="contentBackBtn">← Voltar</button>
       <article class="cp-page">
-        <div class="cp-banner" id="cpBanner"><img id="cpFlag" class="cp-flag" alt="" hidden><span class="icon" id="cpIcon"></span></div>
         <h1 class="cp-title" id="cpTitle"></h1>
         <div class="cp-prose" id="cpProse"></div>
         <p class="cp-sources" id="cpSources"></p>
@@ -159,7 +167,7 @@
         <a href="../JOGO2/jogo2.html">Cores do Mundo</a> 
         <a href="../NOTICIAS/noticias.html">Notícias</a> 
         <a href="../FILMESELIVROS/filmeselivros.html">Filmes e Livros</a> 
-        <a href="../CONTEUDO/conteudo.html">Conteúdo</a> 
+        <a href="../CONTEUDO/conteudo.html">Geopolitica Continental</a> 
       </nav> 
       <div class="footer-social"> 
         <span>SOCIAL</span> 
@@ -184,5 +192,6 @@
   </footer>
 
   <script src="conteudo.js"></script>
+  <script src="../auth.js" defer></script>
 </body>
 </html>

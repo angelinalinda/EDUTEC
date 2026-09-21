@@ -27,15 +27,12 @@
   --toggle-thumb: #242424;
   --toggle-icon: #FFFFFF;
   --font-display: 'Poppins', sans-serif;
- 
 
-  /* Timeline */
-  --timeline-card-bg: var(--accent);
-  --timeline-card-text: #1A1A1A;
-  --timeline-year-color: #FFFFFF;
-  --timeline-place-color: #E8E8E8;
-  --timeline-overlay: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.6) 100%);
-  --timeline-grayscale: 85%;
+  --max-width: 1200px;
+  --radius: 6px;
+  --bg: #000000;
+  --bg-sec: #141714;
+ 
 }
 
 [data-theme="dark"] {
@@ -579,3 +576,68 @@ nav.breadcrumb button:not(.current):hover { color: var(--text); background: var(
   display: block;
   line-height: 1.25;
 }
+
+
+/* =====================================================
+   IMAGENS DE CONTEÚDO (bandeiras e paisagens)
+===================================================== */
+.cp-figure,
+.cp-list-figure {
+  margin: 0 0 24px;
+}
+.cp-list-figure:empty { display: none; }
+.cp-visual-image {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px var(--shadow);
+  background: var(--card-bg);
+}
+.cp-visual-image--landscape {
+  aspect-ratio: 16 / 6;
+  max-height: 420px;
+  object-fit: cover;
+}
+.cp-visual-image--flag {
+  width: min(360px, 78%);
+  aspect-ratio: 3 / 2;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  padding: 6px;
+  border: 1px solid var(--border);
+}
+.cp-figure figcaption,
+.cp-list-figure figcaption {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  text-align: center;
+}
+.cp-list-intro {
+  line-height: 1.75;
+  font-size: 1rem;
+  color: var(--text);
+  margin: 0 0 16px;
+}
+
+/* Introdução geopolítica na página do globo */
+.geo-intro {
+  margin-top: 16px;
+  padding: 18px 22px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.geo-intro h2 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+.geo-intro p {
+  margin: 0 0 10px;
+  line-height: 1.7;
+  font-size: 0.98rem;
+  color: var(--text-soft);
+}
+.geo-intro p:last-child { margin-bottom: 0; }

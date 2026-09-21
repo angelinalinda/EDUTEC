@@ -55,7 +55,19 @@ body{
   color: var(--text);
   transition: background .35s ease, color .35s ease;
   overflow-x: hidden;
+
+  /* Sticky footer: o body ocupa no mínimo a altura da tela */
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
+
+/* Evita que os blocos principais encolham dentro do body flex */
+body > header,
+body > main,
+body > section,
+body > .footer{ width: 100%; }
 
 h1, h2, h3{ font-family: var(--font-display); }
 
@@ -412,6 +424,8 @@ section{
   background: var(--header-bg);
   color: var(--header-text);
   padding: 40px;
+  margin-top: auto; /* empurra o footer para o fim da página */
+  flex-shrink: 0;
 }
 
 .footer-top{

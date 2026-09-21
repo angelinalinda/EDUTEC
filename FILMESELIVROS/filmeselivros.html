@@ -1,107 +1,291 @@
 <!DOCTYPE html>
-<html lang="ptbr">
+<html lang="pt-BR" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Geopoliso</title>
+  <meta name="description" content="Seleção de livros e filmes para entender geopolítica, história e relações internacionais.">
 
-    <link rel="stylesheet" href="../responsivo-geopoliso.css">
-    <link rel="stylesheet" href="filmeselivros.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" id="favicon" type="image/svg+xml" href="">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="filmeselivros.css">
 </head>
 <body>
-    <!-- ===================== HEADER ===================== -->
-<header class="header">
-  <div class="header-left">
+<!-- =========================================================
+     TELA DE CARREGAMENTO — GEOPOLISO
+     ========================================================= -->
+<div class="geopoliso-loader" id="geopolisoLoader">
 
-    <a href="../index.html" class="logo">
-      <img src="../Imagenseba/Group 44.png" alt="Geopoliso">
-    </a>
+  <div class="loader-content">
 
-    <nav class="nav">
-       <a href="../index.html">Home</a>
-      <a href="../TIMELINE/timeline.html">Timeline</a>
-      <a href="../JOGO/jogo.html">Conexões Geopolíticas</a>
-      <a href="../JOGO2/jogo2.html">Cores do Mundo</a>
-      <a href="../NOTICIAS/noticias.html">Notícias</a>
-      <a href="../FILMESELIVROS/filmeselivros.html">Filmes e Livros</a>
-      <a href="../CONTEUDO/conteudo.html">Conteúdo</a>
-    </nav>
+
+    <!-- Globo -->
+    <div class="loader-globe">
+
+      <div class="globe">
+        <div class="globe-line horizontal"></div>
+        <div class="globe-line vertical"></div>
+        <div class="globe-line diagonal"></div>
+        <div class="globe-line diagonal reverse"></div>
+      </div>
+
+      <!-- Pontos de conexão -->
+      <span class="globe-dot dot-1"></span>
+      <span class="globe-dot dot-2"></span>
+      <span class="globe-dot dot-3"></span>
+      <span class="globe-dot dot-4"></span>
+
+    </div>
+
+    <!-- Texto -->
+    <div class="loader-text">
+      <span id="loaderStatus">CONECTANDO AO MUNDO</span>
+      <span class="loader-dots">...</span>
+    </div>
+
+    <!-- Barra de progresso -->
+    <div class="loader-progress">
+      <div class="loader-progress-bar" id="loaderProgressBar"></div>
+    </div>
+
+    <!-- Curiosidade -->
+    <div class="loader-fact">
+      <span class="fact-label">VOCÊ SABIA?</span>
+
+      <p id="geopoliticalFact">
+        Carregando uma curiosidade geopolítica...
+      </p>
+    </div>
+
+    <!-- Aviso de clique -->
+    <button class="loader-skip" id="loaderSkip" type="button">
+      Clique para entrar →
+    </button>
 
   </div>
-
-  <div class="header-actions">
-    <a href="../CADASTRO/cadastro.html" class="link-cadastro">Cadastro</a>
-
-    <a href="../LOGIN/login.html" class="btn-entrar">
-      Entrar <span class="arrow">→</span>
-    </a>
-
-  </div>
-</header>
-
-
-   <div class="theme-toggle-container">
-  <button id="themeToggle" class="theme-toggle" aria-label="Alterar tema">
-    <img 
-      class="toggle-light" 
-      src="../Imagenseba/MUNDOescuro.jfif" 
-      alt="Tema escuro"
-    >
-
-    <img 
-      class="toggle-dark" 
-      src="../Imagenseba/MUNDOclaro.jfif" 
-      alt="Tema claro"
-    >
-  </button>
-
-
 
 </div>
-<!-- ===================== FOOTER ===================== -->
-<footer class="footer">
-  <div class="footer-top">
-    <div class="footer-logo">
-     <a href="../index.html" class="logo">
-      <img src="../Imagenseba/Group 44.png" alt="Geopoliso">
-    </a>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header">
+    <div class="header-left">
+      <a href="../index.html" class="logo">
+        <img src="../Imagenseba/Group 44.png" alt="Geopoliso">
+      </a>
+
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../TIMELINE/timeline.html">Timeline</a>
+        <a href="../JOGO/jogo.html">Conexões Geopolíticas</a>
+        <a href="../JOGO2/jogo2.html">Cores do Mundo</a>
+        <a href="../NOTICIAS/noticias.html">Notícias</a>
+        <a href="../FILMESELIVROS/filmeselivros.html">Filmes e Livros</a>
+        <a href="../CONTEUDO/conteudo.html">Conteúdo</a>
+      </nav>
     </div>
 
-    <nav class="footer-nav">
-      <a href="../index.html">Home</a>
-      <a href="../LOCAIS/locais.html">Locais</a>
-      <a href="../TIMELINE/timeline.html">Timeline</a>
-      <a href="../JOGO/jogo.html">Conexões Geopolíticas</a>
-      <a href="../JOGO2/jogo2.html">Cores do Mundo</a>
-      <a href="#noticias">Notícias</a>
-      <a href="../FILMES/filmes.html">Filmes e Livros</a>
-      <a href="../CONTEUDO/conteudo.html">Conteúdo</a>
-    </nav>
+    <div class="header-actions">
+      <a href="../CADASTRO/cadastro.html" class="link-cadastro">Cadastro</a>
+      <a href="../LOGIN/login.html" class="btn-entrar">
+        Entrar <span class="arrow">→</span>
+      </a>
+    </div>
+  </header>
 
-    <div class="footer-social">
-      <span>SOCIAL</span>
-      <div class="social-icons">
-        <a href="" target="_blank">
-          <svg viewBox="0 0 24 24" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg>
-        </a>
-        <a href="" target="_blank">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M16.5 2c.3 2 1.6 3.6 3.5 4v3c-1.4 0-2.6-.4-3.5-1.1v6.6c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c.4 0 .8 0 1.1.1v3.1c-.3-.1-.7-.2-1.1-.2-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3V2h3z"/></svg>
+  <div class="theme-toggle-container">
+    <button id="tema" class="theme-toggle" type="button" aria-label="Alterar tema">
+      <img class="toggle-light" src="../Imagenseba/MUNDOescuro.jfif" alt="Tema escuro">
+      <img class="toggle-dark" src="../Imagenseba/MUNDOclaro.jfif" alt="Tema claro">
+    </button>
+  </div>
+
+  <main>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero" aria-labelledby="titulo-pagina">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1 id="titulo-pagina">Filmes e livros para entender o mundo</h1>
+          <p>
+            Uma seleção para quem quer ler mapas, guerras, impérios e alianças com mais repertório.
+            Marque o que você já leu e assistiu para acompanhar seu progresso.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#livros">Ver os livros</a>
+            <a class="btn btn-primary" href="#filmes">Ver os filmes</a>
+            <button class="btn btn-outline" id="surpreenda" type="button">Me surpreenda</button>
+          </div>
+        </div>
+
+        <svg class="hero-globe" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+          <g fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="100" cy="100" r="90"/>
+            <ellipse cx="100" cy="100" rx="30" ry="90"/>
+            <ellipse cx="100" cy="100" rx="62" ry="90"/>
+            <line x1="100" y1="10" x2="100" y2="190"/>
+            <line x1="10" y1="100" x2="190" y2="100"/>
+            <ellipse cx="100" cy="55" rx="78" ry="14"/>
+            <ellipse cx="100" cy="145" rx="78" ry="14"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ===== Filtros ===== -->
+    <section class="filtros" aria-label="Filtros do acervo">
+      <div class="container">
+        <div class="filtros-linha">
+          <div class="campo-busca">
+            <label class="visually-hidden" for="busca">Buscar por título, autor ou tema</label>
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/>
+              <line x1="15.5" y1="15.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <input id="busca" type="search" placeholder="Buscar por título, autor ou tema" autocomplete="off">
+          </div>
+
+          <div class="campo-status">
+            <label class="visually-hidden" for="status">Filtrar por situação</label>
+            <select id="status">
+              <option value="todos">Todas as obras</option>
+              <option value="pendentes">Ainda não vi ou li</option>
+              <option value="concluidos">Já vi ou li</option>
+            </select>
+          </div>
+
+          <button id="limpar" class="btn btn-ghost" type="button" hidden>Limpar filtros</button>
+        </div>
+
+        <div id="regioes" class="chips" role="group" aria-label="Região abordada"></div>
+
+        <div class="filtros-rodape">
+          <p id="contagem" aria-live="polite"></p>
+          <div class="progresso">
+            <label for="progresso-barra" id="progresso-texto"></label>
+            <progress id="progresso-barra" max="1" value="0"></progress>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p id="vazio" class="container vazio" hidden>
+      Nenhuma obra combina com esses filtros. Apague a busca ou escolha outra região.
+    </p>
+
+    <!-- ===== Livros ===== -->
+    <section id="livros" class="secao" aria-labelledby="titulo-livros">
+      <div class="container">
+        <div class="secao-topo">
+          <h2 id="titulo-livros">Livros</h2>
+          <p>Separados em prateleiras por tema. Clique em uma lombada para abrir os detalhes.</p>
+        </div>
+        <div id="estante"></div>
+      </div>
+    </section>
+
+    <!-- ===== Filmes ===== -->
+    <section id="filmes" class="secao" aria-labelledby="titulo-filmes">
+      <div class="container">
+        <div class="secao-topo secao-topo-controles">
+          <div>
+            <h2 id="titulo-filmes">Filmes</h2>
+            <p>Em ordem de lançamento, do mais antigo ao mais recente. Deslize a fita ou use os botões.</p>
+          </div>
+          <div class="controles-fita">
+            <button id="fita-anterior" class="btn-icone" type="button" aria-label="Filmes anteriores">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button id="fita-proximo" class="btn-icone" type="button" aria-label="Próximos filmes">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="fita-moldura">
+          <div id="fita" class="fita" tabindex="-1">
+            <div id="fita-trilha" class="fita-trilha"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <a href="../index.html" class="logo">
+          <img src="../Imagenseba/Group 44.png" alt="Geopoliso">
         </a>
       </div>
+
+      <nav class="footer-nav">
+        <a href="../index.html">Home</a>
+        <a href="../LOCAIS/locais.html">Locais</a>
+        <a href="../TIMELINE/timeline.html">Timeline</a>
+        <a href="../JOGO/jogo.html">Conexões Geopolíticas</a>
+        <a href="../JOGO2/jogo2.html">Cores do Mundo</a>
+        <a href="../NOTICIAS/noticias.html">Notícias</a>
+        <a href="../FILMESELIVROS/filmeselivros.html">Filmes e Livros</a>
+        <a href="../CONTEUDO/conteudo.html">Conteúdo</a>
+      </nav>
+
+      <div class="footer-social">
+        <span>SOCIAL</span>
+        <div class="social-icons">
+          <a href="" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18">
+              <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/>
+              <circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="" target="_blank" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M16.5 2c.3 2 1.6 3.6 3.5 4v3c-1.4 0-2.6-.4-3.5-1.1v6.6c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c.4 0 .8 0 1.1.1v3.1c-.3-.1-.7-.2-1.1-.2-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3V2h3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <hr class="footer-divider">
+    <hr class="footer-divider">
 
-  <div class="footer-bottom">
-    <div class="footer-lang">
-      <span class="flag-br">🇧🇷</span>
-      <span>Português - BR</span>
+    <div class="footer-bottom">
+      <div class="footer-lang">
+        <span class="flag-br">🇧🇷</span>
+        <span>Português - BR</span>
+      </div>
+      <div class="footer-copy">2026 © GEOPOLISO</div>
     </div>
-    <div class="footer-copy">2026 © GEOPOLISO</div>
-  </div>
-</footer>
+  </footer>
 
+  <!-- ===== Detalhes da obra ===== -->
+  <dialog id="detalhe" aria-labelledby="detalhe-titulo">
+    <div class="detalhe-corpo">
+      <div class="detalhe-topo">
+        <span id="detalhe-tipo" class="tag tag-tipo"></span>
+        <button id="detalhe-fechar" class="btn btn-ghost" type="button">Fechar</button>
+      </div>
+      <h2 id="detalhe-titulo"></h2>
+      <p id="detalhe-original" class="detalhe-original" hidden></p>
+      <p id="detalhe-autor" class="detalhe-autor"></p>
+      <div class="detalhe-tags">
+        <span id="detalhe-regiao" class="tag"></span>
+        <span id="detalhe-tema" class="tag tag-tema"></span>
+      </div>
+      <p id="detalhe-resumo" class="detalhe-resumo"></p>
+      <button id="detalhe-marcar" class="btn btn-primary" type="button" aria-pressed="false"></button>
+    </div>
+  </dialog>
+
+<script src="script.js" defer></script>
+<script src="auth.js" defer></script>
 
 </body>
 </html>
